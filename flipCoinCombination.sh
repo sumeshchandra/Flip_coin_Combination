@@ -1,4 +1,4 @@
-#! /bin/bash -x
+#! /bin/bash
 
 echo "Flip Coin Combination"
 
@@ -6,27 +6,43 @@ echo "number of times user want to flip the coin"
 read flip
 echo $flip
 
-countHead=0
-countTail=0
+countHH=0
+countTT=0
+countTH=0
+countHT=0
 declare -A noOfCounts
 for((i=0;i<flip;i++))
 do
-if [ $((RANDOM%2)) -eq 1 ]
+if [ $((RANDOM%4)) -eq 0 ]
 then
-((countHead++))
+((countHH++))
+elif [ $((RANDOM%4)) -eq 1 ]
+then
+((countTT++))
+elif [ $((RANDOM%4)) -eq 2 ]
+then
+((countTH++))
 else
-((countTail++))
+((countHT++))
 fi
 done
-echo "head="$countHead
-echo "tail="$countTail
+echo "HH="$countHH
+echo "TT="$countTT
+echo "TH="$countTH
+echo "HT="$countHT
 
-noOfCounts[tail]=$countTail
-noOfCounts[head]=$countHead
+noOfCounts[hh]=$countHH
+noOfCounts[tt]=$countTT
+noOfCounts[th]=$countTH
+noOfCounts[ht]=$countHT
 
 echo ${noOfCounts[@]}
 
-PercentageOfTails=$((100*$countTail/$flip))
-echo "Percentage of tails= "$PercentageOfTails
-PercentageOfHeads=$((100*$countHead/$flip))
-echo "Percentage of heads= "$PercentageOfHeads
+PercentageOfTT=$((100*$countTT/$flip))
+echo "Percentage of TT= "$PercentageOfTT
+PercentageOfHH=$((100*$countHH/$flip))
+echo "Percentage of HH= "$PercentageOfHH
+PercentageOfTH=$((100*$countTH/$flip))
+echo "Percentage of TH= "$PercentageOfTH
+PercentageOfHT=$((100*$countHT/$flip))
+echo "Percentage of HT= "$PercentageOfHT
