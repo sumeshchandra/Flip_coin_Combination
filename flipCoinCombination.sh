@@ -1,3 +1,5 @@
+
+  
 #! /bin/bash
 
 echo "Flip Coin Combination"
@@ -6,43 +8,75 @@ echo "number of times user want to flip the coin"
 read flip
 echo $flip
 
-countHH=0
-countTT=0
-countTH=0
-countHT=0
+countHHH=0
+countTTT=0
+countTHT=0
+countHTH=0
+countHHT=0
+countTTH=0
+countTHH=0
+countHTT=0
 declare -A noOfCounts
 for((i=0;i<flip;i++))
 do
-if [ $((RANDOM%4)) -eq 0 ]
+if [ $((RANDOM%8)) -eq 0 ]
 then
-((countHH++))
-elif [ $((RANDOM%4)) -eq 1 ]
+((countHHH++))
+elif [ $((RANDOM%8)) -eq 1 ]
 then
-((countTT++))
-elif [ $((RANDOM%4)) -eq 2 ]
+((countTTT++))
+elif [ $((RANDOM%8)) -eq 2 ]
 then
-((countTH++))
+((countTHT++))
+elif [ $((RANDOM%8)) -eq 3 ]
+then
+((counHHT++))
+elif [ $((RANDOM%8)) -eq 4 ]
+then
+((countTHH++))
+elif [ $((RANDOM%8)) -eq 5 ]
+then
+((countHTT++))
+elif [ $((RANDOM%8)) -eq 6 ]
+then 
+((countHTH++))
 else
-((countHT++))
+((countTTH++))
 fi
 done
-echo "HH="$countHH
-echo "TT="$countTT
-echo "TH="$countTH
-echo "HT="$countHT
+echo "HHH="$countHHH
+echo "TTT="$countTTT
+echo "THT="$countTHT
+echo "HTH="$countHTH
+echo "HHT="$countHHT
+echo "TTH="$countTTH
+echo "THH="$countTHH
+echo "HTT="$countHTT
 
-noOfCounts[hh]=$countHH
-noOfCounts[tt]=$countTT
-noOfCounts[th]=$countTH
-noOfCounts[ht]=$countHT
+noOfCounts[hhh]=$countHHH
+noOfCounts[ttt]=$countTTT
+noOfCounts[tht]=$countTHT
+noOfCounts[hth]=$countHTH
+noOfCounts[hht]=$countHHT
+noOfCounts[tth]=$countTTH
+noOfCounts[thh]=$countTHH
+noOfCounts[htt]=$countHTT
 
 echo ${noOfCounts[@]}
 
-PercentageOfTT=$((100*$countTT/$flip))
-echo "Percentage of TT= "$PercentageOfTT
-PercentageOfHH=$((100*$countHH/$flip))
-echo "Percentage of HH= "$PercentageOfHH
-PercentageOfTH=$((100*$countTH/$flip))
-echo "Percentage of TH= "$PercentageOfTH
-PercentageOfHT=$((100*$countHT/$flip))
-echo "Percentage of HT= "$PercentageOfHT
+PercentageOfTTT=$((100*$countTTT/$flip))
+echo "Percentage of TTT= "$PercentageOfTTT
+PercentageOfHHH=$((100*$countHHH/$flip))
+echo "Percentage of HHH= "$PercentageOfHHH
+PercentageOfTHT=$((100*$countTHT/$flip))
+echo "Percentage of THT= "$PercentageOfTHT
+PercentageOfHTH=$((100*$countHTH/$flip))
+echo "Percentage of HTH= "$PercentageOfHTH
+PercentageOfHHT=$((100*$countHHT/$flip))
+echo "Percentage of HHT= "$PercentageOfHHT
+PercentageOfTHH=$((100*$countTHH/$flip))
+echo "Percentage of THH= "$PercentageOfTHH
+PercentageOfHTT=$((100*$countHTT/$flip))
+echo "Percentage of HTT= "$PercentageOfHTT
+PercentageOfTTH=$((100*$countTTH/$flip))
+echo "Percentage of TTH= "$PercentageOfTTH
